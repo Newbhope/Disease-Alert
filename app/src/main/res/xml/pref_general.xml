@@ -1,0 +1,50 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="example_switch"
+        android:summary="Allows Disease Alert to use your current location as the priority location for alerts"
+        android:title="Enable GPS " />
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="example_switch"
+        android:summary="Allows Disease Alert to send notifications whenever an outbreak occurs"
+        android:title="Notifications" />
+
+    <ListPreference
+        android:title="Outbreak Severity Level"
+        android:summary="Minimum number of people affected to be alerted of an outbreak"
+        android:entries="@array/pref_level"
+        android:entryValues="@array/pref_level"
+        />
+
+    <MultiSelectListPreference
+        android:title="Disease Type Preference"
+        android:summary="Select what types of disease outbreaks to be alerted of"
+        android:entries="@array/pref_example_list_titles"
+        android:entryValues="@array/pref_example_list_values"
+        />
+    <PreferenceCategory
+        android:title="Location Preferences">
+        <EditTextPreference
+            android:title="Primary"
+            android:summary="Set the primary location via ZIP code to receive news and alerts. The Outbreak Map will default to this location. Overwritten if GPS is enabled"
+            android:inputType="number"
+            android:maxLength="5"
+            />
+        <EditTextPreference
+            android:title="Secondary"
+            />
+        <EditTextPreference
+            android:title="Tertiary"
+            />
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
+
