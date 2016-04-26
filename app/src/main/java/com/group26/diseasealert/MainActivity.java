@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 return new DiseaseMapFragment();
             }
             else if(position == 1) {
-                return NewsFragment.newInstance(position + 1);
+                return new NewsFragment();
             }
             else return new Fragment(); //please don't happen
         }
@@ -94,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Map";
                 case 1:
-                    return "SECTION 2";
+                    return "News";
             }
             return null;
         }

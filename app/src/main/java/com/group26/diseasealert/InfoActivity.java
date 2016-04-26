@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.group26.diseasealert.settings.SettingsActivity;
+import com.group26.diseasealert.settings.SettingsPreferenceActivity;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -68,16 +69,7 @@ public class InfoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -134,7 +126,6 @@ public class InfoActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return 3;
         }
 
@@ -142,11 +133,13 @@ public class InfoActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Info";
                 case 1:
-                    return "SECTION 2";
+                    return "Doctors";
                 case 2:
-                    return "SECTION 3";
+                    return "Discussions";
+                case 3:
+                    return "Pharmacies"; //TODO this doesn't fit with 4 tabs
             }
             return null;
         }

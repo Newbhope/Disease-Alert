@@ -2,7 +2,9 @@ package com.group26.diseasealert.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,22 +18,8 @@ import com.group26.diseasealert.R;
  * Created by jp45275 on 4/15/2016.
  */
 public class NewsFragment extends Fragment {
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
 
-    public NewsFragment() {
-    }
-
-    /**
-     * Returns a new instance of this fragment for the given section
-     * number.
-     */
-    public static NewsFragment newInstance(int sectionNumber) {
-        NewsFragment fragment = new NewsFragment();
-        return fragment;
-    }
+    SimpleCursorAdapter simpleCursorAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,6 +33,11 @@ public class NewsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        String[] fromColumns = {ContactsContract.Data.DISPLAY_NAME};
+        int[] toViews = {android.R.id.text1};
+        simpleCursorAdapter = new SimpleCursorAdapter(getContext(),
+                android.R.layout.simple_list_item_1, null,
+                fromColumns, toViews, 0);
         return rootView;
     }
 
