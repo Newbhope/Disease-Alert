@@ -2,4 +2,8 @@
 
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/app_name"
-    android:hint="Hint" />
+    android:hint="Hint"
+    android:searchSuggestAuthority="com.group26.diseasealert.SuggestionsProvider"
+    android:searchSuggestSelection=" ?"
+    android:searchSuggestIntentAction="android.Intent.action.VIEW"
+    android:singleLine="true"/>

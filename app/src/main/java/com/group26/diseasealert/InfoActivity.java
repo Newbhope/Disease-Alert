@@ -2,8 +2,10 @@ package com.group26.diseasealert;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
@@ -21,24 +23,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.group26.diseasealert.fragment.DiscussionFragment;
+import com.group26.diseasealert.fragment.DoctorFragment;
+import com.group26.diseasealert.fragment.InfoFragment;
+import com.group26.diseasealert.fragment.NewsFragment;
 import com.group26.diseasealert.settings.SettingsActivity;
 import com.group26.diseasealert.settings.SettingsPreferenceActivity;
 
 public class InfoActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
@@ -49,6 +44,17 @@ public class InfoActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Intent intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+        String title = bundle.getString("disease");
+        if(title==null){ //should be from search intent
+            Uri data = intent.getData();
+            String id = intent.getStringExtra(SearchManager.EXTRA_DATA_KEY);
+            title = data.toString();
+        }
+        if(title!=null) getSupportActionBar().setTitle(title);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -64,7 +70,6 @@ public class InfoActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -79,10 +84,12 @@ public class InfoActivity extends AppCompatActivity {
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setContentTitle("Mumps Outbreak in Champaign, Illinois")
-                    .setContentText("22 Affected")
+                    .setContentText("23 Affected")
                     .setAutoCancel(true);
             // Creates an explicit intent for an Activity in your app
-            Intent resultIntent = new Intent(this, InfoActivity.class);
+            String url = "http://www.chicagotribune.com/news/local/breaking/ct-mumps-outbreak-university-of-illinois-met-0805-20150804-story.html";
+            Intent resultIntent = new Intent(Intent.ACTION_VIEW);
+            resultIntent.setData(Uri.parse(url));
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
             // Adds the back stack for the Intent (but not the Intent itself)
             stackBuilder.addParentStack(InfoActivity.class);
@@ -114,10 +121,7 @@ public class InfoActivity extends AppCompatActivity {
         public PlaceholderFragment() {
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -148,7 +152,15 @@ public class InfoActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            if(position == 0){
+                return new InfoFragment();
+            }
+            else if(position == 1){
+                return new DoctorFragment();
+            }
+            else{ // position == 2
+                return new DiscussionFragment();
+            }
         }
 
         @Override
