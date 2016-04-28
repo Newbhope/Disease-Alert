@@ -22,11 +22,12 @@ public class DiscussionFragment extends Fragment{
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_news, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_discussion, container, false);
+
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
-                R.layout.news_item,
-                R.id.list_item_news_textview,
+                R.layout.item_discussion,
+                R.id.list_item_discussion,
                 new ArrayList<String>()
         );
 

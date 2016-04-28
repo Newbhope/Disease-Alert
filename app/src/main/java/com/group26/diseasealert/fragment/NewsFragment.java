@@ -1,9 +1,9 @@
 package com.group26.diseasealert.fragment;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
@@ -12,12 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
-import com.group26.diseasealert.InfoActivity;
 import com.group26.diseasealert.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -47,7 +46,7 @@ public class NewsFragment extends Fragment {
         */
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
-                R.layout.news_item,
+                R.layout.item_news,
                 R.id.list_item_news_textview,
                 new ArrayList<String>()
         );
@@ -72,9 +71,17 @@ public class NewsFragment extends Fragment {
             }
         });
 
-        arrayAdapter.add("Mumps Outbreak at UIUC, 23 Affected");
-        arrayAdapter.add("Measles Outbreak at Chicago, 10 Affected");
-
+        arrayAdapter.add("Mumps Outbreak in Champaign, Illinois" +
+                "   23 Affected");
+        arrayAdapter.add("Measles Outbreak in Chicago, Illinois      10 Affected");
+        arrayAdapter.add("Zika Outbreak in Rio De Janeiro, Brazil    45 Affected");
+        arrayAdapter.add("Mumps Outbreak in Champaign, Illinois    5 Affected");
+        arrayAdapter.add("Ebola Outbreak in Monrovia, Liberia    4809 Affected");
+        arrayAdapter.add("Chikungunya Outbreak in the Americas     679 Affected");
+        arrayAdapter.add("Multistate Outbreak of Salmonella Montevideo Infections Linked to Pistachios                                             11 Affected");
+        arrayAdapter.add("Listeriosis in the USA                    " +
+                "           146 Affected");
+        arrayAdapter.add("ugh");
         return rootView;
     }
 

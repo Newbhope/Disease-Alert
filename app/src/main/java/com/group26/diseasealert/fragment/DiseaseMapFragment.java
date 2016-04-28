@@ -21,6 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -69,10 +70,22 @@ public class DiseaseMapFragment extends Fragment implements OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         LatLng uiuc = new LatLng(40.108196, -88.227184);
+        mMap.addCircle(new CircleOptions()
+                .center(uiuc)
+                .radius(500)
+                .strokeColor(0xffff0000)
+                .fillColor(R.color.colorPrimaryLight)
+        );
         mMap.addMarker(new MarkerOptions()
                 .position(uiuc)
                 .title("Mumps Outbreak, 23 Affected")
 
+        );
+        mMap.addCircle(new CircleOptions()
+                .center(new LatLng(41.871213, -87.629018))
+                .radius(250)
+                .strokeColor(0xffff0000)
+                .fillColor(R.color.colorPrimaryLight)
         );
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(41.871213, -87.629018))

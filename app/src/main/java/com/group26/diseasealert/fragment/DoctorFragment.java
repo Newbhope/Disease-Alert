@@ -25,8 +25,8 @@ public class DoctorFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_doctor, container, false);
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
-                R.layout.news_item,
-                R.id.list_item_news_textview,
+                R.layout.item_doctor,
+                R.id.list_item_doctor,
                 new ArrayList<String>()
         );
 

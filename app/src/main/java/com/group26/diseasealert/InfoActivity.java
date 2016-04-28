@@ -82,7 +82,7 @@ public class InfoActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_notify) {
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setSmallIcon(R.drawable.disease_alert)
                     .setContentTitle("Mumps Outbreak in Champaign, Illinois")
                     .setContentText("23 Affected")
                     .setAutoCancel(true);
