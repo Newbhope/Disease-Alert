@@ -1,6 +1,8 @@
 package com.group26.diseasealert;
 
 import android.Manifest;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,8 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceActivity;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        //searchView.setImeOptions(0x00000001);
+        searchView.setImeOptions(0x00000001);
         //searchView.setIconifiedByDefault(false);
         return true;
     }
@@ -81,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, SettingsPreferenceActivity.class);
-            startActivity(intent);}
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }

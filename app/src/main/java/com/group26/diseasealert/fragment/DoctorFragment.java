@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.group26.diseasealert.LeDeviceListAdapter;
 import com.group26.diseasealert.R;
 
 import java.util.ArrayList;
@@ -23,18 +24,12 @@ public class DoctorFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_doctor, container, false);
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                R.layout.item_doctor,
-                R.id.list_item_doctor,
-                new ArrayList<String>()
-        );
 
-        ListView listView = (ListView) rootView.findViewById(R.id.listview_doctor);
-        listView.setAdapter(arrayAdapter);
+        ListView listView = (ListView) rootView.findViewById(R.id.device_list);
+        LeDeviceListAdapter listAdapter = new LeDeviceListAdapter(getContext());
+        listView.setAdapter(listAdapter);
 
-        arrayAdapter.add("Doctor 1");
-        arrayAdapter.add("Doctor 2");
+        listAdapter.notifyDataSetChanged();
 
         return rootView;
     }

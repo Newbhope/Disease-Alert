@@ -31,11 +31,11 @@ public class DiscussionFragment extends Fragment{
                 new ArrayList<String>()
         );
 
-        ListView listView = (ListView) rootView.findViewById(R.id.listview_discussion);
-        listView.setAdapter(arrayAdapter);
+        //ListView listView = (ListView) rootView.findViewById(R.id.listview_discussion);
+        //listView.setAdapter(arrayAdapter);
 
-        arrayAdapter.add("Discussion 1");
-        arrayAdapter.add("Discussion 2");
+        //arrayAdapter.add("Discussion 1");
+        //arrayAdapter.add("Discussion 2");
 
         return rootView;
     }

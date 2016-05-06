@@ -3,11 +3,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.group26.diseasealert.InfoActivity">
 
-    <item
-        android:id="@+id/action_notify"
-        android:title="Send Notification"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_sms_failed_white_24dp"
-        android:fitsSystemWindows="true"/>
 
 </menu>

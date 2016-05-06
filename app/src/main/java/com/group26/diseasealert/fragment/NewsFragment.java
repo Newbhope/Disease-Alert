@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.group26.diseasealert.LeDeviceListAdapter;
+import com.group26.diseasealert.NewsDeviceListAdapter;
 import com.group26.diseasealert.R;
 
 import java.lang.reflect.Array;
@@ -31,46 +33,38 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_news, container, false);
-        /*
-        Button testButton = (Button) rootView.findViewById(R.id.test);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), InfoActivity.class);
-                startActivity(intent);
-            }
-        });
-        simpleCursorAdapter = new SimpleCursorAdapter(getContext(),
-                android.R.layout.simple_list_item_1, null,
-                fromColumns, toViews, 0);
-        */
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                R.layout.item_news,
-                R.id.list_item_news_textview,
-                new ArrayList<String>()
-        );
+
+        NewsDeviceListAdapter listAdapter = new NewsDeviceListAdapter(getContext());
 
         ListView listView = (ListView) rootView.findViewById(R.id.listview_news);
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(listAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String url = null;
                 Log.e("News Fragment", "position =" + position);
                 if(position == 0) {
-                    String url = "http://www.chicagotribune.com/news/local/breaking/ct-mumps-outbreak-university-of-illinois-met-0805-20150804-story.html";
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
+                    url = "http://www.chicagotribune.com/news/local/breaking/ct-mumps-outbreak-university-of-illinois-met-0805-20150804-story.html";
                     /*
                     Intent intent = new Intent(getActivity(), InfoActivity.class);
                     intent.putExtra("disease", "Mumps");
                     startActivity(intent);
                     */
                 }
+                else if(position == 1){
+                    url = "http://www.nbcchicago.com/news/local/15th-Measles-Case-Confirmed-in-Illinois-294092201.html";
+                }
+                if(url!=null) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
             }
         });
+        listAdapter.notifyDataSetChanged();
+        //listAdapter.bind(0, rootView, "test", "test", "test" );
 
+        /*
         arrayAdapter.add("Mumps Outbreak in Champaign, Illinois" +
                 "   23 Affected");
         arrayAdapter.add("Measles Outbreak in Chicago, Illinois      10 Affected");
@@ -82,6 +76,7 @@ public class NewsFragment extends Fragment {
         arrayAdapter.add("Listeriosis in the USA                    " +
                 "           146 Affected");
         arrayAdapter.add("ugh");
+        */
         return rootView;
     }
 

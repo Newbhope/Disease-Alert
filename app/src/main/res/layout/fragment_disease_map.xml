@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <fragment android:id="@+id/map"
-              android:name="com.google.android.gms.maps.SupportMapFragment"
-              xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:map="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-        tools:context="com.group26.diseasealert.DiesaseMapFragment"/>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.group26.diseasealert.DiesaseMapFragment">
+
+    </fragment>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp">
+        <Button
+            android:id="@+id/primary_location_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/secondary_location_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="2"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/primary_location_button" />
+
+        <Button
+            android:id="@+id/tertiary_location_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="3"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/secondary_location_button" />
+    </RelativeLayout>
 
 
 </FrameLayout>

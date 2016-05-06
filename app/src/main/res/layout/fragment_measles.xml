@@ -7,32 +7,28 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
-            android:id="@+id/image_info"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/mumps"/>
+            android:src="@drawable/measles"/>
         <TextView
-            android:id="@+id/image_title"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_blue_dark"
-            android:text="Mumps"
+            android:text="Measles"
             android:textStyle="bold"
             android:textSize="22sp"/>
 
         <TextView
-            android:id="@+id/image_description"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="5"
-            android:text = "Mumps virus is the causative agent of mumps, a well-known common childhood disease characterised by swelling of the parotid glands, salivary glands and other epithelial tissues, causing high morbidity and in some cases more serious complications such as deafness. The virus is transmitted by direct contact, droplet spread, or contaminated objects. It is considered a vaccine-preventable disease, although significant outbreaks have occurred in recent years in developed countries such as America, in areas of poor vaccine uptake. The mumps virus belongs to the genus Rubulavirus in the family Paramyxovirus."
+            android:text="Measles is an airborne disease which spreads easily through the coughs and sneezes of those infected. It may also be spread through contact with saliva or nasal secretions. Nine out of ten people who are not immune and share living space with an infected person will catch it. People are infectious to others from four days before to four days after the start of the rash. People usually do not get the disease more than once. There's no treatment to get rid of an established measles infection, but over-the-counter fever reducers or vitamin A may help with symptoms."
             />
         <LinearLayout
             android:layout_marginTop="8dp"
@@ -84,7 +80,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="By touching a contaminated surface (blanket or doorknob)"
+            android:text="By mother to baby by pregnancy, labor, or nursing."
             android:visibility="gone"/>
         <LinearLayout
             android:layout_marginTop="4dp"
@@ -118,7 +114,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fever"
+            android:text="Fatigue and pain in the muscles"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/sym2"
@@ -127,7 +123,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Headache"
+            android:text="Runny nose and sneezing"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/sym3"
@@ -136,7 +132,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Muscle aches"
+            android:text="Sore throat with a dry cough"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/sym4"
@@ -145,7 +141,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tiredness"
+            android:text="Fever and skin rash"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/sym5"
@@ -154,7 +150,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loss of apetite"
+            android:text="Loss of appetite"
             android:visibility="gone"/>
         <LinearLayout
             android:layout_marginTop="4dp"
@@ -188,7 +184,7 @@
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Treatment focuses on symptom relief. Recovery takes about two weeks. The disease can be prevented by the MMR vaccine."
+            android:text="There's no treatment to get rid of an established measles infection, but over-the-counter fever reducers or vitamin A may help with symptoms."
             android:visibility="gone"/>
         <TextView
             android:id="@+id/treat2"
@@ -197,7 +193,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Anti-inflammatory: Naproxen (Aleve), Ibuprofen (Advil)"
+            android:text="Pain reliever: Acetaminophen (Tylenol)"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/treat3"
@@ -206,7 +202,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pain reliever: Acetaminophen (Tylenol)"
+            android:text="Fever reducers"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/treat4"
@@ -215,16 +211,7 @@
             android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soothing remedies: Bed rest"
-            android:visibility="gone"/>
-        <TextView
-            android:id="@+id/treat5"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other treatments: MMR vaccine"
+            android:text="MMR vaccine"
             android:visibility="gone"/>
     </LinearLayout>
 </ScrollView>
