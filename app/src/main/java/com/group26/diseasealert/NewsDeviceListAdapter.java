@@ -92,7 +92,6 @@ public class NewsDeviceListAdapter extends BaseAdapter {
             holder.phoneTextView.setText(summary);
             holder.emailTextView.setText(number);
         }
-        //TODO change image here
         //holder.doctorImageView.setImageResource();
     }
 

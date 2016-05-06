@@ -135,8 +135,6 @@ public class InfoActivity extends AppCompatActivity {
                     return "Doctors";
                 case 2:
                     return "Discussions";
-                case 3:
-                    return "Pharmacies"; //TODO this doesn't fit with 4 tabs
             }
             return null;
         }
